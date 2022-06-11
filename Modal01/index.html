@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>cibertec.edu.pe</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="images/pi-favicon.gif" rel="shortcut icon" type="image/gif">
+    <link href="jq/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="jq/bootstrap/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <style>
+        #precio::placeholder {
+            text-align:right;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LLAMAR DIALOGO DE OBJETOS VISUALES -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <button type="button" class="btn btn-primary" onclick="verModal();">
+                    <i class="bi-twitter"></i> Modal con objetos
+                </button>
+
+                <button type="button" class="btn btn-primary" onclick="message();">
+                    <i class="bi-twitter"></i> Diálogo de Mensajería
+                </button>
+
+                <button type="button" class="btn btn-primary" onclick="confirma();">
+                    <i class="bi-question"></i> Diálogo de Confirmación
+                </button>
+            </div>
+        </div>
+
+        <div class="col-12 mt-3">
+            <hr />
+        </div>
+
+        <!-- LLAMAR DIALOGO DE DIFERENTES TAMAÑOS -->
+        <div class="col-12 text-center mt-3">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalLg">
+                <i class="bi-alarm"></i> Modal Large
+            </button>
+
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalXl">
+                <i class="bi-archive"></i> Modal Extra Large
+            </button>
+
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalSm">
+                <i class="bi-bicycle"></i> Modal Small
+            </button>
+
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalXgPropuesto">
+                <i class="bi-bicycle"></i> Propuesto
+            </button>
+        </div>
+
+        <!-- ZONA DE DIALOGOS -->
+        <!-- CON OBJETOS VISUALES -->
+        <div class="modal fade show" id="modalForm" style="display:none">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-light">
+                        <h5 class="modal-title">Título del Modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="apellidos">Apellidos</label>
+                                <input type="text" class="form-control" id="apellidos" placeholder="sus apellidos" />
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="nombres">Nombres</label>
+                                <input type="text" class="form-control" id="nombres" placeholder="sus nombres" />
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-12">
+                                <label for="comentarios">Comentarios</label>
+                                <textarea id="comentarios" class="form-control" style="resize:none" placeholder="sus comentarios"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success">Aceptar</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade show" id="dlg_message" style="display:none">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-light">
+                        <h5 class="modal-title" id="dlg_message_title">Mensaje</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="dlg_message_msg" class="p-4 text-center"></div>
+                                <input type="hidden" id="dlg_confirm_dato1" />
+                                <input type="hidden" id="dlg_confirm_dato2" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success">Aceptar</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CON OBJETO -->
+        <div class="modal fade show" id="modalLg" style="display:none">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-light">
+                        <h5 class="modal-title">Modal Large</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade show" id="modalXl" style="display:none">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-light">
+                        <h5 class="modal-title">Modal Extra Large</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade show" id="modalSm" style="display:none">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-light">
+                        <h5 class="modal-title">Modal Small</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade show" id="modalXgPropuesto" style="display:none">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-light">
+                        <h5 class="modal-title">Nuevo Tutorial</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label for="titulo">Titulo</label>
+                                <input type="text" class="form-control" id="titulo" placeholder="titulo de tutorial entre [10, 200] caracteres" />
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="apellidos">Tipo</label>
+                                <select class="form-select">
+                                    <option>Separata</option>
+                                    <option>Video</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="precio">Precio</label>
+                                <input type="text" class="form-control" id="precio" placeholder="precio entre S/ [15, 1000]" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">Aceptar</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="jq/jquery-3.6.0.min.js"></script>
+    <script src="jq/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
